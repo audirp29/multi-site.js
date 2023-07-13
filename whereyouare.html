@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WhereYouAre - Accueil</title>
+    <link rel="icon" type="image/x-icon" href="tth.jpg">
+    <link rel="stylesheet" href="bb.css">
+    <a href="a.html"><img src="th.jpg" class="logo" title="menu"></a>
+</head>
+<body>
+    <header>
+        <div class="centre">
+            <h1><u>WhereYouAre 📌</u></h1>
+        </div>
+    </header>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+<style>
+.button {
+  background-color: #000000; /* Green */
+  border: none;
+  color: rgb(180, 111, 8);
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 150px 150px;
+  cursor: pointer;
+}
+
+.button4 {border-radius: 25px;}
+</style>
+<button class="button button4" style="vertical-align:middle" onclick="afficherEmplacement()">Let's See</button>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  var latitude, longitude; // Variables pour stocker les coordonnées récupérées
+
+  // Fonction de succès appelée lorsque la géolocalisation est récupérée
+  function success(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+
+    // Appeler la fonction pour afficher la carte avec les coordonnées
+    afficherCarte();
+  }
+
+  // Fonction d'erreur appelée en cas d'échec de la géolocalisation
+  function error() {
+    console.log('Impossible de récupérer la géolocalisation');
+  }
+
+  // Fonction pour afficher la carte avec les coordonnées
+  function afficherCarte() {
+    var map = L.map('map').setView([latitude, longitude], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    L.marker([latitude, longitude]).addTo(map);
+  }
+
+  // Fonction appelée lors de l'actionnement du bouton
+  function afficherEmplacement() {
+    // Vérifier si la géolocalisation est prise en charge par le navigateur
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log('La géolocalisation n\'est pas prise en charge par votre navigateur');
+    }
+  }
+</script>
+<header>
+    <div class="centre">
+        <h1><u>On This Point 📍</u></h1>
+    </div>
+</header>
+</body>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+<style>
+.buttton {
+  background-color: #000000; /* Green */
+  border: none;
+  color: rgb(180, 111, 8);
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 150px 150px;
+  cursor: pointer;
+}
+
+.buttton4 {border-radius: 25px;}
+</style>
+<button class="buttton buttton4" style="vertical-align:middle" onclick="getLocation()">YourCoordo</button>
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+    
+function showPosition(position) {
+    x.innerHTML="<h1>Latitude: </h1>" + position.coords.latitude + 
+    "<br><h1>Longitude: </h1>" + position.coords.longitude;
+}
+</script>
+</body>
+</html>

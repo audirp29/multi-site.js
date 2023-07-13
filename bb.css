@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+    justify-content: center;
+    background-image: url(NAT08460_9094af9c-2a45-408e-9274-4df828052ba4_1024x1024.png);
+}
+
+.centre h1{
+    width:100vw;
+    padding: 25px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    color: rgb(190, 248, 0);
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="b.css">
+    <a href="a.html"><img src="th.jpg" class="logo" title="menu"></a>
+    <title>ENTREZ NOM BOURSIER</title>
+</head>
+<body>
+    <header>
+        <div class="centree">
+            <h1><u>Edited By Romain</u></h1>
+        </div>
+    </header>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</body>
+</html>
+<head>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+  <!-- Div pour afficher le widget -->
+  <div id="tv-widget-container"></div>
+
+  <script type="text/javascript">
+    new TradingView.widget(
+      {
+        "width": 980,
+        "height": 610,
+        "symbol": "NASDAQ:AAPL",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "locale": "fr",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "withdateranges": true,
+        "hide_side_toolbar": false,
+        "allow_symbol_change": true,
+        "container_id": "tv-widget-container"
+      }
+    );
+  </script>
+   <!-- Div pour afficher le widget -->
+   <div id="tv"></div>
+
+   <script type="text/javascript">
+    let test42 = prompt("Entrez le nom de la boite NASDAQ, ou tu veux voir leur bourse :");
+     new TradingView.widget(
+       {
+         "width": 780,
+         "height": 410,
+         "symbol": `${test42}`,
+         "interval": "D",
+         "timezone": "Etc/UTC",
+         "theme": "light",
+         "style": "1",
+         "locale": "fr",
+         "toolbar_bg": "#f1f3f6",
+         "enable_publishing": false,
+         "withdateranges": true,
+         "hide_side_toolbar": false,
+         "allow_symbol_change": true,
+         "container_id": "tv"
+       }
+     );
+   </script>
+</head>
