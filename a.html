@@ -25,10 +25,64 @@
     <!--<a href="jeux.html"><img src="jeuxx.jpg" class="logo" title="trap"></a>-->
     <h2 style="color: rgb(190, 248, 0);">la calculatrice dans les pages est un retour au menu</h2>
     <br>
+    <style>
+        .buttton {
+          background-color: #000000;
+          border: none;
+          color: rgb(190, 248, 0);
+          padding: 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 20px;
+          margin: 150px 150px;
+          cursor: pointer;
+        }
+        
+        .buttton4 {border-radius: 25px;}
+    </style>
+    <button class="buttton buttton4" id="btn">Spam me !!!</button>
+    <canvas id="confetti-canvas"></canvas>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script type="text/javascript">
+      const btn = document.querySelector('#btn');
+      const canvas = document.querySelector('#confetti-canvas');
+      function onButtonClick(){
+        var myConfetti = confetti.create(canvas, {
+          resize: true,
+          useWorker: true
+        });
+        /*affiche au middle 1 clique
+        myConfetti({
+          particleCount: 100,
+          spread: 160
+        });*/
+        /*affiche poly endroit mais clique beaucoup*/
+        confetti({
+      particleCount: 150,
+      startVelocity: 40,
+      spread: 360,
+      origin: {
+        x: Math.random(),
+        // since they fall down, start a bit higher than random
+        y: Math.random() - 0.2
+      }
+    });
+      }
+      btn.addEventListener('click', onButtonClick);
+    </script>
+    <!-- CSS -->
+    <style>
+    #confetti-canvas {
+      position: fixed; 
+      z-index: 999; 
+      top: 0; 
+      left: 0; 
+      width: 100vw; 
+      height: 100vh; 
+      pointer-events: none;
+    }
+    </style>
 </body>
-<footer>
-    <div class="centree">
-        <h1><u>Edited By Romain</u></h1>
-    </div>
-</footer>
 </html>
